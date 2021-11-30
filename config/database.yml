@@ -51,5 +51,6 @@ test:
 production:
   <<: *default
   database: rails_test_production
-  username: rails_test
-  password: <%= ENV['RAILS_TEST_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= Rails.application.credentials.db[:password] %>
+  host: <%= Rails.application.credentials.db[:hostname] %>
